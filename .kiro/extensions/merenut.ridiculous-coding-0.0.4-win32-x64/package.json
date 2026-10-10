@@ -1,0 +1,215 @@
+{
+	"name": "ridiculous-coding",
+	"displayName": "Ridiculous Coding",
+	"description": "Make your coding experience 1000x more ridiculous in VS Code: blips, booms, fireworks, XP and levels. Inspired by the Godot Rediculous Coding plugin by jotson.",
+	"version": "0.0.4",
+	"publisher": "Merenut",
+	"icon": "media/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/merenut/RediculousCoding.git"
+	},
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.84.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"extensionKind": [
+		"ui"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Ridiculous Coding",
+			"properties": {
+				"ridiculousCoding.explosions": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show 'boom' effects when deleting."
+				},
+				"ridiculousCoding.blips": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show 'blip' effects when typing and newline animation."
+				},
+				"ridiculousCoding.chars": {
+					"type": "boolean",
+					"default": true,
+					"description": "Overlay the last key/character label with the effects."
+				},
+				"ridiculousCoding.shake": {
+					"type": "boolean",
+					"default": true,
+					"description": "Approximate editor 'shake' by jittering effect decorations."
+				},
+				"ridiculousCoding.shakeAmplitude": {
+					"type": "number",
+					"default": 6,
+					"minimum": 0,
+					"maximum": 32,
+					"description": "Shake amplitude in pixels (uniform in all directions)."
+				},
+				"ridiculousCoding.shakeDecayMs": {
+					"type": "number",
+					"default": 120,
+					"minimum": 20,
+					"maximum": 2000,
+					"description": "How long (ms) shake continues after the last keypress."
+				},
+				"ridiculousCoding.sound": {
+					"type": "boolean",
+					"default": true,
+					"description": "Play sounds for blips, booms, and fireworks. Native/helper audio is intended for local desktop VS Code sessions only."
+				},
+				"ridiculousCoding.soundBackend": {
+					"type": "string",
+					"enum": [
+						"auto",
+						"nativeHelper",
+						"webview"
+					],
+					"default": "auto",
+					"markdownDescription": "Select the audio backend. `nativeHelper` is intended for local desktop VS Code sessions only and falls back to webview audio when the bundled helper is unavailable."
+				},
+				"ridiculousCoding.fireworks": {
+					"type": "boolean",
+					"default": true,
+					"description": "Celebrate level-ups with fireworks in the panel."
+				},
+				"ridiculousCoding.leveling.baseXp": {
+					"type": "number",
+					"default": 50,
+					"minimum": 10,
+					"description": "Base XP used in the level-up curve (original plugin uses 50)."
+				},
+				"ridiculousCoding.enableStatusBar": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show XP/Level in the status bar."
+				},
+				"ridiculousCoding.reducedEffects": {
+					"type": "boolean",
+					"default": false,
+					"description": "Reduce visual and sound effects for accessibility. When enabled, disables most animations and sounds."
+				},
+				"ridiculousCoding.combo.maxTrail": {
+					"type": "number",
+					"default": 5,
+					"minimum": 0,
+					"description": "Maximum number of trailing decorations to keep per effect type."
+				},
+				"ridiculousCoding.combo.ttl.blipMs": {
+					"type": "number",
+					"default": 400,
+					"minimum": 0,
+					"description": "Lifetime (ms) of a blip trail decoration."
+				},
+				"ridiculousCoding.combo.ttl.boomMs": {
+					"type": "number",
+					"default": 650,
+					"minimum": 0,
+					"description": "Lifetime (ms) of a boom trail decoration."
+				},
+				"ridiculousCoding.combo.ttl.newlineMs": {
+					"type": "number",
+					"default": 350,
+					"minimum": 0,
+					"description": "Lifetime (ms) of a newline trail decoration."
+				},
+				"ridiculousCoding.combo.anim.frameMs": {
+					"type": "number",
+					"default": 50,
+					"minimum": 10,
+					"description": "Animation frame interval in milliseconds for trail updates."
+				},
+				"ridiculousCoding.combo.anim.floatEm": {
+					"type": "number",
+					"default": 0.7,
+					"minimum": 0,
+					"description": "Additional vertical float distance (in em) over lifetime."
+				},
+				"ridiculousCoding.combo.anim.scaleAdd": {
+					"type": "number",
+					"default": 0.6,
+					"minimum": 0,
+					"description": "Additional scale amount added over lifetime."
+				}
+			}
+		},
+		"views": {
+			"explorer": [
+				{
+					"id": "ridiculousCoding.panel",
+					"name": "Ridiculous Coding",
+					"type": "webview",
+					"icon": "media/icons/icon.svg"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "ridiculousCoding.showPanel",
+				"title": "Ridiculous Coding: Show Panel"
+			},
+			{
+				"command": "ridiculousCoding.resetXp",
+				"title": "Ridiculous Coding: Reset XP"
+			},
+			{
+				"command": "ridiculousCoding.toggleExplosions",
+				"title": "Ridiculous Coding: Toggle Explosions"
+			},
+			{
+				"command": "ridiculousCoding.toggleBlips",
+				"title": "Ridiculous Coding: Toggle Blips"
+			},
+			{
+				"command": "ridiculousCoding.toggleChars",
+				"title": "Ridiculous Coding: Toggle Char Labels"
+			},
+			{
+				"command": "ridiculousCoding.toggleShake",
+				"title": "Ridiculous Coding: Toggle Shake"
+			},
+			{
+				"command": "ridiculousCoding.toggleSound",
+				"title": "Ridiculous Coding: Toggle Sound"
+			},
+			{
+				"command": "ridiculousCoding.toggleFireworks",
+				"title": "Ridiculous Coding: Toggle Fireworks"
+			},
+			{
+				"command": "ridiculousCoding.toggleReducedEffects",
+				"title": "Ridiculous Coding: Toggle Reduced Effects"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"build:audio-helper": "node ./scripts/build-audio-helper.js",
+		"build:audio-helper:win32-x64": "node ./scripts/build-audio-helper.js --target win32-x64",
+		"build:audio-helper:win32-arm64": "node ./scripts/build-audio-helper.js --target win32-arm64",
+		"build:audio-helper:linux-x64": "node ./scripts/build-audio-helper.js --target linux-x64",
+		"build:audio-helper:linux-arm64": "node ./scripts/build-audio-helper.js --target linux-arm64",
+		"build:audio-helper:darwin-x64": "node ./scripts/build-audio-helper.js --target darwin-x64",
+		"build:audio-helper:darwin-arm64": "node ./scripts/build-audio-helper.js --target darwin-arm64",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^20.8.10",
+		"@types/vscode": "^1.84.0",
+		"typescript": "^5.5.4"
+	},
+	"__metadata": {
+		"installedTimestamp": 1791603811863,
+		"targetPlatform": "win32-x64",
+		"size": 6081999
+	}
+}

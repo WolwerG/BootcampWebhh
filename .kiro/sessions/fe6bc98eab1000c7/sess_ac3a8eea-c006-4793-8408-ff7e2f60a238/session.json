@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "dataModelVersion": 1,
+  "id": "sess_ac3a8eea-c006-4793-8408-ff7e2f60a238",
+  "title": "New Session",
+  "agentMode": "vibe",
+  "workspacePaths": [
+    "c:\\Users\\rix.kia\\Documents\\Bootcamp"
+  ],
+  "rootPaths": [
+    "c:\\Users\\rix.kia\\Documents\\Bootcamp"
+  ],
+  "createdAt": "2026-10-10T03:44:05.422Z",
+  "lastModifiedAt": "2026-10-10T03:44:05.737Z",
+  "semanticReviewEnabled": true,
+  "disableAutoCompaction": false,
+  "ftaEnabled": false,
+  "workflowsEnabled": true,
+  "specPlanEnabled": false,
+  "specWorkflow": "quick",
+  "specSkipClarificationEnabled": true,
+  "memoryConfig": {
+    "mode": "read_write",
+    "reflection": true
+  },
+  "memoryConfigSource": "legacy",
+  "_meta": {
+    "kiro": {
+      "policyPreset": [
+        "edit-workspace"
+      ],
+      "shellType": "powershell",
+      "settings": {
+        "workflows": {
+          "enabled": true
+        },
+        "goal": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "autopilot": false
+}

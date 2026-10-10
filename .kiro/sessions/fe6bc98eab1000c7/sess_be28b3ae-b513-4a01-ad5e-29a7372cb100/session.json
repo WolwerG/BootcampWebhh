@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "dataModelVersion": 1,
+  "id": "sess_be28b3ae-b513-4a01-ad5e-29a7372cb100",
+  "title": "Build Personal Dashboard App",
+  "agentMode": "vibe",
+  "workspacePaths": [
+    "c:\\Users\\rix.kia\\Documents\\Bootcamp"
+  ],
+  "rootPaths": [
+    "c:\\Users\\rix.kia\\Documents\\Bootcamp"
+  ],
+  "createdAt": "2026-10-10T03:44:05.437Z",
+  "lastModifiedAt": "2026-10-10T03:51:35.595Z",
+  "modelId": "auto",
+  "autopilot": false,
+  "contextSnapshotModelDisplay": {
+    "modelId": "auto",
+    "display": "Auto (model selected dynamically on the server)"
+  },
+  "semanticReviewEnabled": true,
+  "disableAutoCompaction": false,
+  "ftaEnabled": false,
+  "workflowsEnabled": true,
+  "specPlanEnabled": false,
+  "specWorkflow": "quick",
+  "specSkipClarificationEnabled": true,
+  "memoryConfig": {
+    "mode": "read_write",
+    "reflection": true
+  },
+  "memoryConfigSource": "legacy",
+  "description": "Building a full-featured personal dashboard with greeting, focus timer, to-do list, quick links, dark mode, and custom name — using HTML, CSS, and vanilla JS with localStorage.",
+  "status": "idle",
+  "_meta": {
+    "kiro": {
+      "policyPreset": [
+        "edit-workspace"
+      ],
+      "shellType": "powershell",
+      "settings": {
+        "workflows": {
+          "enabled": true
+        },
+        "goal": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}

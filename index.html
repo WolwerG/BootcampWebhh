@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="app-logo">⚡ Dashboard</span>
+    </div>
+    <div class="topbar-right">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- ── GREETING CARD ── -->
+    <section class="card greeting-card" aria-label="Greeting">
+      <div class="greeting-text">
+        <h1 id="greetingMsg">Good morning!</h1>
+        <p id="greetingName" class="greeting-sub"></p>
+      </div>
+      <div class="datetime-block">
+        <div id="clockDisplay" class="clock">00:00:00</div>
+        <div id="dateDisplay" class="date-text"></div>
+      </div>
+      <!-- Name editor (hidden by default) -->
+      <div class="name-editor" id="nameEditor">
+        <input id="nameInput" type="text" placeholder="Your name…" maxlength="30" aria-label="Enter your name" />
+        <button id="nameSaveBtn" class="btn primary small">Save</button>
+        <button id="nameCancelBtn" class="btn small">Cancel</button>
+      </div>
+      <button id="editNameBtn" class="btn ghost small name-edit-trigger" aria-label="Edit name">✏️ Edit name</button>
+    </section>
+
+    <div class="two-col">
+
+      <!-- ── FOCUS TIMER ── -->
+      <section class="card timer-card" aria-label="Focus timer">
+        <h2 class="card-title">🎯 Focus Timer</h2>
+        <div class="timer-display" id="timerDisplay" aria-live="polite" aria-label="Timer">25:00</div>
+        <div class="timer-modes">
+          <button class="mode-btn active" data-minutes="25">Pomodoro</button>
+          <button class="mode-btn" data-minutes="5">Short Break</button>
+          <button class="mode-btn" data-minutes="15">Long Break</button>
+        </div>
+        <div class="timer-controls">
+          <button id="timerStart" class="btn primary">▶ Start</button>
+          <button id="timerStop" class="btn" disabled>⏸ Pause</button>
+          <button id="timerReset" class="btn">↺ Reset</button>
+        </div>
+        <p id="timerStatus" class="timer-status"></p>
+      </section>
+
+      <!-- ── QUICK LINKS ── -->
+      <section class="card links-card" aria-label="Quick links">
+        <h2 class="card-title">🔗 Quick Links</h2>
+        <ul id="linksList" class="links-list" aria-label="Saved links"></ul>
+        <form id="linkForm" class="link-form" novalidate aria-label="Add a new link">
+          <input id="linkName" type="text" placeholder="Label (e.g. GitHub)" maxlength="30" required aria-label="Link label" />
+          <input id="linkUrl" type="url" placeholder="https://…" required aria-label="Link URL" />
+          <button type="submit" class="btn primary small">+ Add</button>
+        </form>
+        <p id="linkError" class="field-error" role="alert" aria-live="assertive"></p>
+      </section>
+
+    </div>
+
+    <!-- ── TO-DO LIST ── -->
+    <section class="card todo-card" aria-label="To-do list">
+      <div class="todo-header">
+        <h2 class="card-title">✅ To-Do List</h2>
+        <div class="todo-controls">
+          <select id="sortSelect" aria-label="Sort tasks">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="pending">Pending first</option>
+            <option value="done">Done first</option>
+          </select>
+          <button id="clearDoneBtn" class="btn ghost small">🗑 Clear done</button>
+        </div>
+      </div>
+
+      <form id="todoForm" class="todo-form" novalidate aria-label="Add a task">
+        <input id="todoInput" type="text" placeholder="Add a new task…" maxlength="120" required aria-label="New task" />
+        <button type="submit" class="btn primary small">+ Add</button>
+      </form>
+
+      <ul id="todoList" class="todo-list" aria-label="Tasks" aria-live="polite"></ul>
+      <p id="todoEmpty" class="empty-hint" hidden>No tasks yet. Add one above!</p>
+    </section>
+
+  </main>
+
+  <!-- ── TOAST ── -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
